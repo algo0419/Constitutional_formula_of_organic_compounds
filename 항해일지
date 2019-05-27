@@ -1,0 +1,34 @@
+항해일지
+2115 조준형, 2115 안효준
+
+#2019.05.07
+주제 결정
+처음에는 학교에서 해야 할 일이 많을 때 우선순위를 queue로 정하기 였지만 이 경우에는 손으로 하는게 더 빠를 것 같아서 이동수업, 과제연구 시 방문할 장소가 많을 때 최단시간 동선을 짜 주는 프로그램을 만들기로 주제를 바꿈.
+이후 우리학교 보다도 훨씬 더 복잡한 대학교 등에 적용하는게 목표
+
+#페르소나
+
+
+#2019.05.14.
+우선순위 큐 이용
+https://m.blog.naver.com/powersilk/220718851612
+
+큐를 이용한 너비우선탐색 알고리즘
+https://m.blog.naver.com/PostView.nhn?blogId=powersilk&logNo=10168065952&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+큐를 이용한 너비우선탐색 알고리즘을 응용!
+n가지 장소를 방문할 때 한 장소에서 다른 장소로 이동할 때 경로를 계산하여
+n!가지의 경우에 대해 소요시간을 비교하기로 함
+우리학교 말고도 더 규모가 큰 학교에도 적용 가능한 코드를 만들자
+
+#2019.05.21
+http://ejklike.github.io/2018/01/05/bfs-and-dfs.html
+https://idea-sketch.tistory.com/27
+https://blog.ilkyu.kr/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%84%88%EB%B9%84-%EC%9A%B0%EC%84%A0-%ED%83%90%EC%83%89Breadth-First-Search%EA%B3%BC-%EA%B5%AC%ED%98%84-%EB%B0%A9%EB%B2%95
+너비우선탐색 관련 코드
+경로탐색 방법에는 너비우선탐색, 깊이우선탐색이 있는데 모든 목적지를 지나야 하는 너비우선탐색이 프로젝트에 적합할것이다
+우선 너비우선탐색으로 경로를 찾은 뒤, 각 구간별 소요시간을 구하기로 한다.
+
+MVP
+https://github.com/algo0419/Path_finding_in_school_BFS/blob/master/20190521MVP
+
