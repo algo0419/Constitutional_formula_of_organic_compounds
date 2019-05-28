@@ -1,5 +1,6 @@
 항해일지
 2115 조준형, 2115 안효준
+https://docs.google.com/document/d/1e4st49q8YRhFLQM3tB1PTCkNxLReGtbNKk9HhiIWlD8/edit
 
 #2019.05.07
 주제 결정
@@ -32,3 +33,14 @@ https://blog.ilkyu.kr/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%84%88%EB%B9
 MVP
 https://github.com/algo0419/Path_finding_in_school_BFS/blob/master/20190521MVP
 
+#2019.05.28
+길찾기 문제가 너무 단조로워서 화학 반응에 너비우선탐색, 경로우선탐색 메커니즘을 적용해보기로 함
+
+HBr 연쇄반응
+1. Br2 → 2 Br inititation
+2. Br + H2 → HBr + H propagation 
+3. H + Br2 → HBr + Br propagation 
+4. H + HBr → H2 + Br inhibition
+5. 2 Br → Br2 breaking
+
+각 원소를 노드로 구현
