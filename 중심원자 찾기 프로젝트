@@ -1,0 +1,117 @@
+# 원소별 원자가 전자와 전기음성도를 넣어줌
+# 원자가 전자가 4에 가장 가까운 원자를 배치. 원자가 전자 수가 같으면 전기음성도 작은 것을 배치 이 프로젝트는 2번까지함
+# 중심원자의 상하좌우에 원자 배치
+# 단일결합으로 연결
+# 원자가 전자 합에서 단일결합 수 *2 만큼 빼준다
+#옥텟규칙에 맞게 비공유전자쌍 그려준다
+
+import networkx as nx
+from collections import defaultdict
+
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = defaultdict(lambda: [])
+
+    def add_edge(self, v, u, w):
+        self.graph[v].append((u, w))
+
+class Queue :
+    def __init__(self) :
+        self.items = []
+    def enqueue(self, item) :
+        self.items.insert(0, item)
+    def dequeue(self) :
+        return self.items.pop()
+    def isEmpty(self) :
+        return self.items == []
+    def size(self) :
+        return len(self.items)
+    def getfront(self) :
+        return self.items[-1]
+  
+    
+a = input().split(',')
+f = input('Be,O or B,N or Mg, S or Al, P이 들어가는지 말씀해주십시오. ex) yes1 or no2')
+j = int(f)
+
+valence = {'H': set([1]), 'He': set([0]), 'Li': set([1]), 'Be': set([2]), 'B': set([3]),
+           'C': set([4]), 'N': set([5]), 'O': set([6]), 'F': set([7]), 'Ne': set([0]),
+           'Na': set([1]), 'Mg': set([2]), 'Al': set([3]), 'Si': set([4]), 'P': set([5]),
+           'S': set([6]), 'Cl': set([7]), 'Ar': set([0]), 'K': set([1]), 'Ca': set([2])}
+
+electronegative = {'H': set([2.10]), 'Li': set([0.98]), 'Be': set([1.57]), 'B': set([2.04]),
+                   'C': set([2.55]), 'N': set([3.04]), 'O': set([3.44]), 'F': set([3.98]), 
+                   'Na': set([0.93]), 'Mg': set([1.31]), 'Al': set([1.61]), 'Si': set([1.90]),
+                   'P': set([2.19]), 'S': set([2.58]), 'Cl': set([3.16]), 'K': set([0.82]), 
+                   'Ca': set([1.00])}
+
+queue = Queue()
+for i in a :
+    queue.enqueue(i)
+    
+b = queue.size()
+result = []
+dict = {}
+
+print(dict)
+   
+if  j == 1 :
+    while len(result) != b :
+        n = queue.dequeue()
+        for i in valence[n] :
+            d = int(i)
+            dict[(d-4)] = n
+        queue.enqueue(n)
+        result.append((d-4))    
+    print(result)
+
+    smallest = result[0]
+    for i in result :
+        if i < smallest :
+            smallest == i
+
+    for key in dict.keys():
+        if key == smallest :
+            print(dict[key])
+            e = dict[key]
+            
+else :
+    while len(result) != b :
+        n = queue.dequeue()
+        for i in valence[n] :
+            d = int(i)
+            dict[abs(d-4)] = n
+        queue.enqueue(n)
+        result.append((abs(d-4)))   
+    print(result)
+
+    smallest = result[0]
+    for i in result :
+        if i < smallest :
+            smallest == i
+
+    for key in dict.keys():
+        if key == smallest :
+            print(dict[key])
+            e = dict[key]
+        
+print(dict)
+
+G = nx.Graph()
+
+G.add_weighted_edges_from([\
+            (e, e, 3),])
+    
+nx.draw(G, with_labels = True, node_color='b', font_color='w')
+    
+
+for i in dict[key] :
+    if i != e :
+            
+        G = nx.Graph()
+
+        G.add_weighted_edges_from([\
+            (e, i, 3),])
+    
+        nx.draw(G, with_labels = True, node_color='b', font_color='w')
