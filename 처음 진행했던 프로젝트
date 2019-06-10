@@ -1,0 +1,54 @@
+from collections import defaultdict
+import networkx as nx
+
+a = input()
+b = input()
+
+graph = {'A': set(['B','C']),
+         'B': set(['D']),
+         'C': set(['D','E']),
+         'D': set(['E']),
+         'E': set(['D'])}
+
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = defaultdict(lambda: [])
+
+    def add_edge(self, v, u, w):
+        self.graph[v].append((u, w))
+
+def bfs_paths(graph, start, goal):
+    queue = [(start, [start])]
+    result = []
+    time = 0 
+
+    while queue:
+        n, path = queue.pop(0)
+        if n == goal:
+            result.append(path)
+        else:
+            for m in graph[n] - set(path):
+                queue.append((m, path + [m]))
+      
+    return result
+
+print(bfs_paths(graph,a,b))
+
+g = Graph(['A', 'B', 'C', 'D', 'E'])
+
+g.add_edge('A', 'B', 3)
+g.add_edge('A', 'C', 3)
+g.add_edge('B', 'C', 3)
+g.add_edge('C', 'B', 3)
+g.add_edge('B', 'D', 3)
+g.add_edge('C', 'D', 3)
+g.add_edge('D', 'E', 3)
+g.add_edge('E', 'D', 3)
+g.add_edge('C', 'E', 3)
+
+
+G.add_weighted_edges_from([\
+    ('A', 'B', 3), ('A', 'C', 3), ('B', 'C', 3), ('C', 'B', 3), \
+    ('B', 'D', 3), ('C', 'D', 3), ('D', 'E', 3), ('E', 'D', 3), ('C', 'E', 3)])
+nx.draw(G, with_labels = True, node_color='b', font_color='w')
